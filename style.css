@@ -16,3 +16,9 @@ html{scroll-behavior:auto}body{overflow:hidden}body.flip-ready{overflow:hidden}
 .flip-page.is-active{pointer-events:auto!important;z-index:8}
 .flip-page.is-active .nav-button{position:relative;z-index:9;pointer-events:auto;touch-action:manipulation}
 .flip-page.is-past,.flip-page.is-future{pointer-events:none!important}
+
+/* Personalisasi nama tamu pada sampul */
+.guest-address{margin:0 auto 24px;padding:15px 14px;max-width:340px;border:1px solid rgba(229,197,125,.4);border-radius:10px;background:rgba(229,197,125,.055);overflow-wrap:anywhere}
+.guest-address[hidden]{display:none!important}
+.guest-address span{display:block;font:600 10px Montserrat,Arial,sans-serif;letter-spacing:2px;color:var(--muted);margin-bottom:9px}
+.guest-address strong{display:block;font:500 clamp(25px,6vw,36px) 'Cormorant Garamond',Georgia,serif;color:var(--gold);line-height:1.2}

@@ -60,3 +60,13 @@ music.addEventListener('play',updateMusicStatus);
 music.addEventListener('pause',updateMusicStatus);
 music.addEventListener('error',musicError);
 if(window.lucide)window.lucide.createIcons();
+
+// Nama tamu diambil dari URL ?to=... (tanpa HTML injection).
+const guestParam = new URLSearchParams(window.location.search).get('to');
+const guestName = guestParam ? guestParam.trim().slice(0,120) : '';
+const guestAddress = document.getElementById('guestAddress');
+const guestNameEl = document.getElementById('guestName');
+if (guestName && guestAddress && guestNameEl) {
+  guestNameEl.textContent = guestName;
+  guestAddress.hidden = false;
+}
