@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Generator Undangan Dela | Eka & Eva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--gold:#e9c985;--light:#f7efdf;--muted:#cfc2a8}*{box-sizing:border-box}body{margin:0;min-height:100svh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 50% 0%,#3c2e1b,#0b0907 65%);color:var(--light);font-family:Montserrat,Arial,sans-serif}.card{width:min(100%,520px);padding:clamp(25px,6vw,44px);background:linear-gradient(140deg,#211c15,#0d0c0a);border:1px solid #967849;border-radius:18px;box-shadow:0 20px 70px #0009}.top{text-align:center;color:var(--gold);letter-spacing:4px;font-size:12px}.heading{text-align:center;font:500 clamp(38px,8vw,54px)/1.05 'Cormorant Garamond',Georgia,serif;color:var(--gold);margin:18px 0 8px}.sub{text-align:center;color:var(--muted);font-size:12px;line-height:1.9;margin:0 0 28px}label{display:block;font-size:12px;color:var(--gold);margin-bottom:10px;font-weight:600}input{width:100%;background:#15120f;color:white;border:1px solid #8c744c;border-radius:10px;padding:15px;font:14px Montserrat,Arial,sans-serif;outline-offset:3px}input:focus{outline:2px solid #dfb969}.preview{margin:22px 0;background:#12100d;border:1px solid #54432b;border-radius:12px;padding:20px;text-align:center}.small{font-size:11px;color:var(--muted);letter-spacing:1px}.name{font:500 30px 'Cormorant Garamond',Georgia,serif;color:var(--gold);overflow-wrap:anywhere;margin:10px 0}.link{font-size:11px;line-height:1.7;overflow-wrap:anywhere;color:#e7d2a7}button,a.btn{width:100%;display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:28px;padding:12px 16px;font:600 12px Montserrat,Arial,sans-serif;cursor:pointer;text-decoration:none;margin-top:11px}button{border:0;background:linear-gradient(100deg,#b58b43,#f4dfa5,#b58b43);color:#1b150b}button:disabled{opacity:.45;cursor:not-allowed}.outline{background:transparent;border:1px solid #b49355;color:var(--gold)}.note{font-size:11px;color:var(--muted);line-height:1.8;margin:22px 0 0}.status{min-height:22px;text-align:center;color:#f4d79b;font-size:12px;margin-top:12px}footer{text-align:center;color:#9e8968;font-size:10px;margin-top:26px}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="top">✦ &nbsp; EKA & EVA &nbsp; ✦</div>
+<h1 class="heading">Invitation Link<br>Generator</h1>
+<p class="sub">Buat tautan undangan ulang tahun Dela Nur Hikmah untuk setiap tamu, tanpa mengubah website.</p>
+<label for="guest">Nama tamu</label>
+<input id="guest" type="text" maxlength="80" placeholder="Contoh: Bapak Budi dan Keluarga" autocomplete="off">
+<section class="preview" aria-live="polite">
+<div class="small">KEPADA YTH.</div>
+<div id="previewName" class="name">Nama Tamu</div>
+<div id="previewLink" class="link">Isi nama tamu untuk membuat link.</div>
+</section>
+<button id="copy" disabled>⧉ &nbsp; Salin Link Undangan</button>
+<button id="share" disabled>↗ &nbsp; Bagikan via WhatsApp</button>
+<a id="test" class="btn outline" href="https://norjayadij-byte.github.io/undangan-dela2/" target="_blank" rel="noopener noreferrer">Lihat Undangan ↗</a>
+<div id="status" class="status" role="status"></div>
+<p class="note">Catatan: Halaman generator ini bisa dibuka siapa pun yang mengetahui alamatnya. Tidak ada daftar nama yang disimpan. Nama tamu baru muncul di sampul jika fitur <strong>?to=</strong> sudah dipasang pada website undangan.</p>
+<footer>DELA'S BIRTHDAY · 24 JANUARI 2027</footer>
+</main>
+<script>
+'use strict';
+const base='https://norjayadij-byte.github.io/undangan-dela2/';
+const guest=document.getElementById('guest'),previewName=document.getElementById('previewName'),previewLink=document.getElementById('previewLink'),copy=document.getElementById('copy'),share=document.getElementById('share'),test=document.getElementById('test'),status=document.getElementById('status');
+let link='';
+function update(){const name=guest.value.trim();link=name?base+'?to='+encodeURIComponent(name):'';previewName.textContent=name||'Nama Tamu';previewLink.textContent=link||'Isi nama tamu untuk membuat link.';copy.disabled=share.disabled=!name;test.href=link||base;status.textContent='';}
+guest.addEventListener('input',update);
+copy.addEventListener('click',async()=>{if(!link)return;try{await navigator.clipboard.writeText(link);status.textContent='Link berhasil disalin!';}catch(e){const ta=document.createElement('textarea');ta.value=link;document.body.append(ta);ta.select();const ok=document.execCommand('copy');ta.remove();status.textContent=ok?'Link berhasil disalin!':'Gagal menyalin. Pilih dan salin link pada kotak di atas.';}});
+share.addEventListener('click',()=>{if(!link)return;const name=guest.value.trim();const msg='Halo '+name+',\n\nDengan senang hati kami mengundang Anda untuk hadir dalam perayaan ulang tahun Dela Nur Hikmah pada Minggu, 24 Januari 2027 pukul 19.00 WITA di Hotel Mercure Samarinda.\n\nBerikut undangan khusus untuk Anda:\n'+link+'\n\nSalam hangat,\nEka & Eva';window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');});
+update();
+</script>
+</body></html>
