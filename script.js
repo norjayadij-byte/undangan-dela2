@@ -7,7 +7,7 @@ const musicStatus = document.getElementById('musicStatus');
 const counter = document.getElementById('pageCounter');
 const eventTime = new Date('2027-01-24T19:00:00+08:00').getTime();
 const whatsapp = '6282150403002';
-const message = 'Halo Eka & Eva! Saya ingin mengonfirmasi kehadiran pada ulang tahun Dela Nur Hikmah, Minggu 24 Januari 2027 pukul 19.00 WITA di Hotel Mercure Samarinda.\n\nNama: \nJumlah tamu: \nKonfirmasi (hadir/tidak hadir): ';
+const message = 'Halo! Saya ingin mengonfirmasi kehadiran pada ulang tahun Dela Nur Hikmah, Minggu 24 Januari 2027 pukul 19.00 WITA di Hotel Mercure Samarinda.\n\nNama: \nJumlah tamu: \nKonfirmasi (hadir/tidak hadir): ';
 document.getElementById('rsvp').href = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(message);
 function updateCountdown(){
  let diff=Math.max(0,eventTime-Date.now());

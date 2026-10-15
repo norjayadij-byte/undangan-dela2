@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Generator Undangan Dela | Eka & Eva</title>
+<title>Generator Undangan Dela</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -11,7 +11,7 @@
 </head>
 <body>
 <main class="card">
-<div class="top">✦ &nbsp; EKA & EVA &nbsp; ✦</div>
+<div class="top">✦ &nbsp; DELA’S BIRTHDAY &nbsp; ✦</div>
 <h1 class="heading">Invitation Link<br>Generator</h1>
 <p class="sub">Buat tautan undangan ulang tahun Dela Nur Hikmah untuk setiap tamu, tanpa mengubah website.</p>
 <label for="guest">Nama tamu</label>
@@ -36,7 +36,7 @@ let link='';
 function update(){const name=guest.value.trim();link=name?base+'?to='+encodeURIComponent(name):'';previewName.textContent=name||'Nama Tamu';previewLink.textContent=link||'Isi nama tamu untuk membuat link.';copy.disabled=share.disabled=!name;test.href=link||base;status.textContent='';}
 guest.addEventListener('input',update);
 copy.addEventListener('click',async()=>{if(!link)return;try{await navigator.clipboard.writeText(link);status.textContent='Link berhasil disalin!';}catch(e){const ta=document.createElement('textarea');ta.value=link;document.body.append(ta);ta.select();const ok=document.execCommand('copy');ta.remove();status.textContent=ok?'Link berhasil disalin!':'Gagal menyalin. Pilih dan salin link pada kotak di atas.';}});
-share.addEventListener('click',()=>{if(!link)return;const name=guest.value.trim();const msg='Halo '+name+',\n\nDengan senang hati kami mengundang Anda untuk hadir dalam perayaan ulang tahun Dela Nur Hikmah pada Minggu, 24 Januari 2027 pukul 19.00 WITA di Hotel Mercure Samarinda.\n\nBerikut undangan khusus untuk Anda:\n'+link+'\n\nSalam hangat,\nEka & Eva';window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');});
+share.addEventListener('click',()=>{if(!link)return;const name=guest.value.trim();const msg='Halo '+name+',\n\nDengan senang hati kami mengundang Anda untuk hadir dalam perayaan ulang tahun Dela Nur Hikmah pada Minggu, 24 Januari 2027 pukul 19.00 WITA di Hotel Mercure Samarinda.\n\nBerikut undangan khusus untuk Anda:\n'+link+'\n\nTerima kasih.';window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');});
 update();
 </script>
 </body></html>
